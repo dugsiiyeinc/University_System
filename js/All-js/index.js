@@ -84,6 +84,7 @@ const images = [
 
         setTimeout(()=>{
             slidingImages();
+            img.style.transition=".5s"
         },2000);
   }
 
