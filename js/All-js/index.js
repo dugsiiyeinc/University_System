@@ -84,9 +84,57 @@ const images = [
 
         setTimeout(()=>{
             slidingImages();
+            img.style.transition=".5s"
         },2000);
   }
 
   document.addEventListener('DOMContentLoaded', ()=>{
     slidingImages();
+    updateImage();
   })
+
+  let header = document.querySelector('header')
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('sticky', window.scrollY > 0)
+  })
+
+
+// sliding section3 images 
+
+let image = document.querySelectorAll('.imgSlide');
+let imgContainer = document.querySelector('.imgContainer');
+let prev = document.querySelector('.prev');
+let next = document.querySelector('.next');
+
+let currentImg = 1;
+let timeout;
+console.log(image.length);
+
+next.addEventListener('click', () => {
+  currentImg++;
+  updateImage();
+  clearTimeout(timeout);
+})
+
+prev.addEventListener('click', () => {
+    currentImg--;
+  updateImage();
+  clearTimeout(timeout);
+})
+
+
+function updateImage(){
+  if(currentImg > image.length){
+    currentImg = 1;
+  }
+  else if(currentImg < 1){
+    currentImg = image.length;
+  }
+  imgContainer.style.transform = `translateX(-${(currentImg - 1) * 500}px)`;
+  timeout = setTimeout(() => {
+    currentImg++;
+    updateImage();
+  }, 3000);
+}
+
+// imageContainerEl.style.transform = `translateX(-${(currentImg - 1) * 500}px)`;
