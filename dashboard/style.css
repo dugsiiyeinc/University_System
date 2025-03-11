@@ -1,0 +1,86 @@
+:root {
+    /* colors */
+    --color1: #03045e;
+    --color2: #90e0ef;
+    --color3: #ffffff;
+    /* fonts */
+    --font1: "Poppins", sans-serif;
+    --font2: "Bricolage Grotesque", sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+img{
+    width: 100%;
+}
+
+header{
+    width: 100%;
+    background-color: var(--color1);
+
+
+}
+
+.container{
+    width: min(90%, 1266px);
+    margin-inline: auto;
+    z-index: 99;
+    transition: .5s;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6rem;
+}
+
+.nav .logo{
+    font-size: 1.2rem;
+    font-family: var(--font1);
+    color: var(--color3);
+    text-transform: capitalize;
+}
+
+
+.container .user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+    gap: 1rem;
+    background-color: #88888897;
+    border-radius: 2px;
+    padding: .4rem;
+    /* flex-basis: 10%; */
+    cursor: pointer;
+    transition: .6s;
+
+}
+
+
+.container .user i{
+    padding: .3rem;
+    font-size: .85rem;
+    background-color: var(--color1);
+    border-radius: 2px;
+    color: var(--color3);
+}
+
+.container .user p{
+    font-family: var(--font2);
+    color: var(--color3);
+}
+
+.container .user:hover{
+    background-color: rgba(128, 128, 128, 0.454);
+}
