@@ -50,9 +50,100 @@ img{
 }
 
 
+.about-sec2{
+    width: 100%;
+    position: relative;
+    margin-block: 3rem;
+}
+
+.about-sec2 .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.about-sec2 .container .about-up{
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+}
+
+.about-sec2 .container .about-up h2{
+    font-family: var(--font2);
+    color: var(--color1);
+    text-align: center;
+}
+
+.about-sec2 .container .about-up  p{
+    font-size: 1.1rem;
+    color: grey;
+    font-family: var(--font2);
+    line-height: 1.7rem;
+}
+
+.about-sec2 .container .about-down{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+}
+
+.about-sec2 .container .about-down .vision{
+    padding: 1.5rem;
+    box-sizing: border-box;
+    background-color: var(--color1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+    height: 250px;
+    border-radius: 2px;
+
+}
+
+.about-sec2 .container .about-down .vision a{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    /* font-size: 2rem; */
+}
+
+
+.about-sec2 .container .about-down .vision a i{
+    background-color: var(--color3);
+    padding: .3rem;
+    border-radius: 2px;
+    font-size: 1.3rem;
+    color: var(--color1);
+
+}
+
+.about-sec2 .container .about-down .vision a span{
+    color: var(--color3);
+    font-size: 1.4rem;
+    font-family: var(--font2);
+    font-weight: 600;
+}
+
+.about-sec2 .container .about-down .vision p{
+    color: var(--color3);
+    line-height: 1.2rem;
+    font-size: .85rem;
+    font-family: var(--font2);
+}
+
+
+
 @media (max-width: 1030px) {
     .about-sec1 .container h1{
         font-size: 2rem;
+    }
+
+    .about-sec2 .container .about-down {
+        display: flex;
+        flex-direction: column;
     }
 }
 

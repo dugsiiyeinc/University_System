@@ -79,6 +79,7 @@ header.sticky .desktop .menus li a{
     color: var(--color3);
     font-family: var(--font1);
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .desktop .menus li {
