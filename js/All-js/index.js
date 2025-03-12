@@ -137,4 +137,21 @@ function updateImage(){
   }, 3000);
 }
 
-// imageContainerEl.style.transform = `translateX(-${(currentImg - 1) * 500}px)`;
+
+// pop up register form
+
+// btn add student
+let addStudent = document.querySelector('#addStudent');
+// regsiterForm
+let registerForm = document.querySelector('#register');
+
+addStudent.addEventListener('click', (e)=>{
+  e.preventDefault();
+  openPopUp();
+  console.log("click");
+  
+})
+
+function openPopUp(){
+  registerForm.style.display="flex";
+}
