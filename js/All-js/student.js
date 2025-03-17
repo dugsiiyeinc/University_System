@@ -10,7 +10,7 @@ let registerForm = document.querySelector('#register');
 openModel.addEventListener('click', (e)=>{
   e.preventDefault();
   openPopUp();
-  console.log("click");
+  // console.log("click");
   
 })
 
