@@ -36,6 +36,9 @@ form.addEventListener('submit', (e) => {
     let StudenId = StudentId.value.trim();
 
 
+ 
+
+
     if (StudenId !== '' & full_name !== '' & date_birth !== '' & Gender !== '' & national !== '' & mobile !== '' & oldSchool !== '' & course !== '') {
 
         let registerStudent = {
@@ -57,6 +60,16 @@ form.addEventListener('submit', (e) => {
         location.reload();
 
        }else{
+            // getDataLocalStorage 
+    let students = getDataLocalStorage();    
+    // unique id 
+    let existingId = students.find(student => student.ID === StudenId);
+    // console.log(existingId);
+    if(existingId){
+        alert("this id is existing already");
+        return existingId;
+    }
+    
         createNewStudent(registerStudent);
        }
         loadStudents(registerStudent);
@@ -74,6 +87,8 @@ form.addEventListener('submit', (e) => {
 
 function registerStudentDom(student) {
     let trow = document.createElement('tr');
+
+
 
     trow.innerHTML = `          <td>${student.ID}</td>
                                 <td>${student.Name}</td>
