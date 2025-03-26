@@ -344,6 +344,66 @@ td .fa-trash{
     cursor: pointer;
 }
 
+#deleteBtn{
+    color: var(--color1);
+    margin-left: .5rem;
+    cursor: pointer;
+    z-index: 99;
+}
+
+#edit{
+    color: var(--color2);
+    cursor: pointer;
+    z-index: 99;
+}
+
+.popup-content {
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    display: none;
+    /* opacity: 0; */
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* transform: translateY(-10%); */
+    transition: .6s ease-in-out;
+  }
+
+  /* .popup-content.active{
+    opacity: 1;
+  }
+  
+  .popup-content.close{
+  opacity: 0;
+  } */
+  .popup-content p {
+    margin-bottom: 20px;
+  }
+  
+  /* Styling the buttons */
+  .popup-content button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  #yesBtn {
+    background-color: var(--color2);
+    color: white;
+  }
+  
+  #noBtn {
+    background-color: var(--color1);
+    color: white;
+  }
+
 /* footer */
 
 footer{

@@ -24,10 +24,14 @@
 #deleteBtn{
     color: var(--color1);
     margin-left: .5rem;
+    cursor: pointer;
+    z-index: 99;
 }
 
 #edit{
     color: var(--color2);
+    cursor: pointer;
+    z-index: 99;
 }
 
 
@@ -45,14 +49,16 @@
     width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     /* transform: translateY(-10%); */
-    transition: .5s;
+    transition: .6s ease-in-out;
   }
 
-  .popup-content.active{
-    
-    display: block;
+  /* .popup-content.active{
+    opacity: 1;
   }
   
+  .popup-content.close{
+  opacity: 0;
+  } */
   .popup-content p {
     margin-bottom: 20px;
   }

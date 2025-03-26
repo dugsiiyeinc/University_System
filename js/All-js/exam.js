@@ -14,7 +14,7 @@ let tbody = document.querySelector('#tbody');
 let updateMode = false;
 let updateId = null;
 
-
+openModel
 // loadData
 document.addEventListener('DOMContentLoaded', loadExamData);
 examForm.addEventListener('submit', (e) => {
@@ -40,8 +40,8 @@ examForm.addEventListener('submit', (e) => {
     if (name !== '' & roll !== '' & course1 !== '' & course2 !== '' & course3 !== '' & course4 !== '' & course5 !== '') {
 
         let registExam = {
-            ID: updateId || Date.now,
-            Roll_Num: roll,
+            ID: Date.now,
+            Roll_Num: updateId || roll,
             FUll_Name: name,
             Data_Base: course1,
             Pythone_: course2,
@@ -50,20 +50,26 @@ examForm.addEventListener('submit', (e) => {
             Statis_tics: course5,
         }
 
-        registNewExam(registExam, name, roll);
-        loadExamData();
+
+
 
         console.log(registExam.Roll_Num);
 
+        if (updateMode) {
+            // update the exam
+            updateExam(registExam);
+        } else {
+            // regist exam
+            registNewExam(registExam, name, roll);
+        }
+
+        loadExamData();
+        closePopUp();
+
     }
 
-    if (updateMode) {
-        // update the exam
-    } else {
-        // regist exam
-    }
 
-    closePopUp();
+
     examForm.reset();
 
 })
@@ -88,8 +94,8 @@ function registExamDom(exam) {
     // console.log(exam);
 
     let tr = document.createElement('tr');
-
-     tr.innerHTML = `
+    tr.dataset = exam.ID;
+    tr.innerHTML = `
   
         <td>${exam.Roll_Num}</td>
         <td>${exam.FUll_Name}</td>
@@ -101,44 +107,131 @@ function registExamDom(exam) {
         </td>
         <td><i class="fa-solid fa-pen-to-square" id="edit"></i>
             <i class="fa-solid fa-trash" id="deleteBtn"></i>
-             <div id="popup" class="popup">
-    <div class="popup-content">
-      <p>Are you sure you want to delete?</p>
-      <button id="yesBtn">Yes</button>
-      <button id="noBtn">No</button>
-    </div>
-  </div>
+            
+             
+                    <div id="popup"  class="popup-content">
+                        <p>Are you sure you want to delete?</p>
+                        <button id="yesBtn">Yes</button>
+                        <button id="noBtn">No</button>
+                    </div>
+             
+
+
+       
         </td>
 
 
 
 `
-   
-
+    // varibales for storing delete & update elemants
     let deleteBtn = tr.querySelector('#deleteBtn');
-    if(deleteBtn){
-        deleteBtn.addEventListener('click', () => {
-            console.log("click");
-            
-            deletePopUp();
-        })
-    
-    }else{
-        console.log("delete btn not found");
-        
-    }
-   
- 
+    let updateBtn = tr.querySelector('#edit');
+    let yesBtn = tr.querySelector('#yesBtn');
+    let noBtn = tr.querySelector('#noBtn');
+    let popUpBtn = tr.querySelector('#popup');
+
+    deleteBtn.addEventListener('click', ()=>{
+        popUpBtn.style.display="block";
+    })
+
+    noBtn.addEventListener('click', ()=>{
+        popUpBtn.style.display="none";
+    })
+
+    yesBtn.addEventListener('click', ()=>{
+        deleteExam(exam.ID);
+        popUpBtn.style.display="none";
+
+    })
+
+
+    updateBtn.addEventListener('click', () => {
+        handleUpdate(exam.Roll_Num);
+
+    })
+
     return tr;
 
 }
 
-   // deletePopUp
-   function deletePopUp() {
-    let popUpDelete = document.querySelector('.popup-content');
-    popUpDelete.classList.add('active');
+// handleUpdate
+function handleUpdate(examId) {
+    let studentExam = getStudentExam();
+    fetchStudentData();
+    let findExam = studentExam.find(exam => exam.Roll_Num === examId);
+
+    selectFullName.value = findExam.FUll_Name;
+    selectRollNum.value = findExam.Roll_Num;
+    Database.value = findExam.Data_Base;
+    Pythone.value = findExam.Pythone_;
+    WebDevelopment.value = findExam.Web_Develop;
+    Network.value = findExam.Network_;
+    Statistics.value = findExam.Statis_tics;
+    updateId = examId;
+    updateMode = true;
+    openPopUp();
 
 }
+
+
+// function updateExam(Exam){
+//     let studentExam = getStudentExam();
+//     fetchStudentData();
+//     let examIndex = studentExam.findIndex((exam)=> exam.ID == Exam);
+
+//     studentExam[examIndex] = Exam;
+
+//     localStorage.setItem('studentExam', JSON.stringify(Exam));
+
+//     loadExamData();
+
+
+// }
+
+// deletePopUp
+
+
+// deleteExam 
+
+function updateExam(Exam) {
+    let studentExam = getStudentExam();
+
+    let examIndex = studentExam.findIndex((exam) => exam.Roll_Num == Exam.Roll_Num);
+
+    if (examIndex === -1) {
+        console.error("❌ Error: Exam not found in studentExam array!");
+        return;
+    }
+
+    // Si sax ah u update garee
+    studentExam[examIndex] = { ...studentExam[examIndex], ...Exam };
+
+    // Dib u kaydi array-ga
+    localStorage.setItem('studentExam', JSON.stringify(studentExam));
+
+
+
+    // Dib u cusbooneysii table-ka
+    // console.log("📌 studentExam Data:", studentExam);
+    loadExamData();
+}
+
+// console.log("📌 localStorage:", localStorage.getItem("studentExam"));
+
+
+function deleteExam(examId) {
+    let studentExam = getStudentExam();
+
+    let filterExam = studentExam.filter(exams => exams.ID !== examId);
+
+    localStorage.setItem('studentExam', JSON.stringify(filterExam));
+    loadExamData();
+}
+
+
+// deletePopDown
+
+
 
 
 
@@ -146,6 +239,8 @@ function registExamDom(exam) {
 function getStudentData() {
     let studentData = JSON.parse(localStorage.getItem('students')) || [];
     return studentData;
+
+
 }
 
 
@@ -160,7 +255,7 @@ function registNewExam(exam, fullName, rollNum) {
         return existingExam;
     }
     studentExam.push(exam);
-    localStorage.setItem('exams', JSON.stringify(studentExam));
+    localStorage.setItem('studentExam', JSON.stringify(studentExam));
     console.log("✅ Exam registered successfully!");
 }
 
@@ -169,7 +264,9 @@ function registNewExam(exam, fullName, rollNum) {
 // getStudentExam
 
 function getStudentExam() {
-    let studentExam = JSON.parse(localStorage.getItem('exams')) || [];
+    let studentExam = JSON.parse(localStorage.getItem('studentExam')) || [];
+    console.log(studentExam.length);
+    console.log(studentExam);
     return studentExam;
 }
 
@@ -190,9 +287,9 @@ function fetchStudentData() {
             optionRoll.value = student.ID;
             optionRoll.textContent = student.ID;
 
-            console.log(optionName);
-            console.log(optionRoll);
-            console.log(optionRoll);
+            // console.log(optionName);
+            // console.log(optionRoll);
+            // console.log(optionRoll);
 
             selectFullName.appendChild(optionName)
             selectRollNum.appendChild(optionRoll)
@@ -224,10 +321,11 @@ function openPopUp() {
 
 function loadExamData() {
 
-    let studentExam = getStudentExam();
+    let ExamStudents = getStudentExam();
+
     tbody.innerHTML = "";
 
-    studentExam.map((student) => {
+    ExamStudents.map((student) => {
         return tbody.appendChild(registExamDom(student));
 
     })

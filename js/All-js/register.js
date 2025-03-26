@@ -36,7 +36,7 @@ form.addEventListener('submit', (e) => {
     let StudenId = StudentId.value.trim();
 
 
- 
+
 
 
     if (StudenId !== '' & full_name !== '' & date_birth !== '' & Gender !== '' & national !== '' & mobile !== '' & oldSchool !== '' & course !== '') {
@@ -54,24 +54,24 @@ form.addEventListener('submit', (e) => {
 
         }
 
-       if(updateMode){
-        // update
-        editStudent(registerStudent);
-        location.reload();
+        if (updateMode) {
+            // update
+            editStudent(registerStudent);
+            location.reload();
 
-       }else{
+        } else {
             // getDataLocalStorage 
-    let students = getDataLocalStorage();    
-    // unique id 
-    let existingId = students.find(student => student.ID === StudenId);
-    // console.log(existingId);
-    if(existingId){
-        alert("this id is existing already");
-        return existingId;
-    }
-    
-        createNewStudent(registerStudent);
-       }
+            let students = getDataLocalStorage();
+            // unique id 
+            let existingId = students.find(student => student.ID === StudenId);
+            // console.log(existingId);
+            if (existingId) {
+                alert("this id is existing already");
+                return existingId;
+            }
+
+            createNewStudent(registerStudent);
+        }
         loadStudents(registerStudent);
         // Id++;
         closePopUp()
@@ -87,6 +87,7 @@ form.addEventListener('submit', (e) => {
 
 function registerStudentDom(student) {
     let trow = document.createElement('tr');
+    trow.dataset = student.ID;
 
 
 
@@ -100,18 +101,39 @@ function registerStudentDom(student) {
                                 <td>${student.desiredCourse}</td>
                                 <td><i class="fa-solid fa-pen-to-square" id="edit"></i>
                                     <i class="fa-solid fa-trash" id="delete"></i>
+
+                                      <div id="popup"  class="popup-content">
+                                        <p>Are you sure you want to delete?</p>
+                                        <button id="yesBtn">Yes</button>
+                                        <button id="noBtn">No</button>
+                                     </div>
                                 </td>
                          
     `;
+    
+    // popDelete varibales 
+    let popUpDelete = trow.querySelector('#popup');
+    let yesBtn = trow.querySelector('#yesBtn');
+    let noBtn = trow.querySelector('#noBtn');
+
+
 
     let deleteBtn = trow.querySelector('#delete');
 
     deleteBtn.addEventListener('click', () => {
+        popUpDelete.style.display="block";
+    });
 
-        deleteStudent(student.id);
-
+    yesBtn.addEventListener('click', ()=>{
+        deleteStudent(student.id);        
+        popUpDelete.style.display="none";
 
     });
+
+    noBtn.addEventListener('click', ()=>{
+        popUpDelete.style.display="none";
+
+    })
 
     // updateStudent
     let editBtn = trow.querySelector('#edit');
@@ -150,15 +172,17 @@ function handleUpdate(studentId) {
 }
 
 
-function editStudent(student){
+function editStudent(student) {
     let students = getDataLocalStorage();
 
     let studentIndex = students.findIndex((stu) => stu.id == student.id);
-    students[studentIndex]= student;
+    students[studentIndex] = student;
 
     localStorage.setItem('students', JSON.stringify(students));
 
 }
+
+
 
 // deleteStudent
 
@@ -201,7 +225,8 @@ function getDataLocalStorage() {
 
 function loadStudents() {
     let students = getDataLocalStorage();
-
+    console.log(students.length);
+    console.log(students);
     tbody.innerHTML = "";
     students.map((student) => {
         return tbody.appendChild(registerStudentDom(student));
