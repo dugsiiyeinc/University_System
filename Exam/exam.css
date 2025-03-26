@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --color1: #03045e;
+    --color2: #90e0ef;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color2);
+    margin: 0;
+}
+.exam-form {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    gap: .7rem;
+}
+
+.title{
+    font-size: 1.3rem;
+    background-color: var(--color1);
+    color: white;
+    padding: 6px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+
+}
+
+.title2{
+    font-size: 1.2rem;
+    text-align: center;
+
+}
+
+#roll-num{
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#submit{
+    width: calc(100% - 20px);
+    background: var(--color1);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* table */
+
+.table{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.719);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.exam-table p{
+    background-color: var(--color1);
+  
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    color: white;
+    position: absolute;
+    /* top: 20%;
+    right: 10%; */
+    top: 10%;
+    right: 3%;
+}
+
+.table.active{
+    display: flex;
+}
+
+.exam-table {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 20px;
+    position: relative;
+}
+h2 {
+    color: var(--color1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background: var(--color1);
+    color: white;
+}
+
+
+/* #submit:hover {
+    background: var(--color2);
+    color: var(--color1);
+} */
+@media (max-width: 500px) {
+    .exam-form {
+        width: 80%;
+    }
+
+    .exam-table {
+        width: 90%;
+    }
+    table {
+        font-size: 14px;
+    }
+}

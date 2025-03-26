@@ -135,7 +135,7 @@ function registerStudentDom(student) {
 
     })
 
-    // updateStudent
+    // updateStudent 
     let editBtn = trow.querySelector('#edit');
     editBtn.addEventListener('click', () => {
         handleUpdate(student.id);

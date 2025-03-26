@@ -290,12 +290,13 @@ function fetchStudentData() {
             // console.log(optionName);
             // console.log(optionRoll);
             // console.log(optionRoll);
+            console.log(student.Name);
 
             selectFullName.appendChild(optionName)
             selectRollNum.appendChild(optionRoll)
         });
 
-
+        
 
     };
 }

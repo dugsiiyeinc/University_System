@@ -1,7 +1,8 @@
 // desktop , protal-sub-menu
 let List_Li =  document.querySelector('.portal');
 let subMenu = document.querySelector('.sub-menu');
-List_Li.addEventListener('click', ()=>{
+List_Li.addEventListener('click', (e)=>{
+  e.preventDefault();
     subMenu.classList.toggle('active');
 })
 
