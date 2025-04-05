@@ -1,0 +1,105 @@
+:root {
+    /* colors */
+    --color1: #03045e;
+    --color2: #90e0ef;
+    --color3: #ffffff;
+    /* fonts */
+    --font1: "Poppins", sans-serif;
+    --font2: "Bricolage Grotesque", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--color1), var(--color2));
+}
+
+.login-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: var(--color1);
+    font-size: 1.8rem;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+    position: relative;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    /* transition:  .7s; */
+}
+
+input:focus{
+    border: 2px solid var(--color1);
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    font-size: 18px;
+    display: none;
+}
+
+.icon.valid {
+    color: var(--color1);
+}
+
+.icon.invalid {
+    color: var(--color2);
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--color1);
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #141661;
+}
+
+@media (max-width: 400px) {
+    .login-container {
+        padding: 15px;
+    }
+}
