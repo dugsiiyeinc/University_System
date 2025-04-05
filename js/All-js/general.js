@@ -1,4 +1,4 @@
-// pop up register form
+
 
 // openModel
 let openModel = document.querySelector('#addStudent');
@@ -11,6 +11,7 @@ openModel.addEventListener('click', (e)=>{
   e.preventDefault();
   openPopUp();
   // console.log("click");
+  document.querySelector('#form').reset();
   
 })
 
@@ -57,7 +58,16 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 });
 
 
+let logOut = document.querySelector('#logOut');
 
+logOut.addEventListener('click', (e)=>{
+  e.preventDefault();
+
+  localStorage.removeItem('users');
+
+  window.location.href = ".../loginForm/loginPage";
+
+})
 
 
 
