@@ -1,7 +1,8 @@
 // desktop , protal-sub-menu
 let List_Li =  document.querySelector('.portal');
 let subMenu = document.querySelector('.sub-menu');
-List_Li.addEventListener('click', ()=>{
+List_Li.addEventListener('click', (e)=>{
+  e.preventDefault();
     subMenu.classList.toggle('active');
 })
 
@@ -137,4 +138,21 @@ function updateImage(){
   }, 3000);
 }
 
-// imageContainerEl.style.transform = `translateX(-${(currentImg - 1) * 500}px)`;
+
+// pop up register form
+
+// btn add student
+let addStudent = document.querySelector('#addStudent');
+// regsiterForm
+let registerForm = document.querySelector('#register');
+
+addStudent.addEventListener('click', (e)=>{
+  e.preventDefault();
+  openPopUp();
+  console.log("click");
+  
+})
+
+function openPopUp(){
+  registerForm.style.display="flex";
+}
