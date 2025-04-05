@@ -41,8 +41,8 @@ form.addEventListener('click', (e)=>{
 
         popUp();
     }else{
-        alert('roll-num is not exist')
-        return rollNum;
+        // alert('roll-num is not exist')
+        return student;
     }
 
 

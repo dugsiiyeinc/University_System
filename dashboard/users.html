@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
     <link rel="stylesheet" href="/style/exam.css">
+    <link rel="stylesheet" href="/style/users.css">
     <link rel="stylesheet" href="/style/students.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="/js/All-js/general.js" defer></script>
-    <script src="/js/All-js/exam.js" defer></script>
+    <script src="/js/All-js/users.js" defer></script>
+  
 
 </head>
 
@@ -54,19 +56,15 @@
             <div class="right">
                 <div class="list-student">
                     <div class="up">
-                        <h2>Exam Information</h2>
-                        <a id="addStudent" href="#">Regist Exam</a>
+                        <h2>User Management</h2>
+                        <a id="addStudent" href="#">Create User</a>
                     </div>
                     <table id="table">
                         <thead>
                             <tr>
-                                <th>Roll-Num</th>
-                                <th>Full Name</th>
-                                <th>Database</th>
-                                <th>Pythone</th>
-                                <th>Web development</th>
-                                <th>Network two</th>
-                                <th>Statistics</th>
+                                <th>Image</th>
+                                <th>Username</th>
+                                <th>Password</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -82,60 +80,21 @@
 
         <div class="form">
             <i id="close" class="fa-solid fa-xmark"></i>
-            <form id="form" action="/dashboard/students.html" method="post">
-                <h1 id="titleForm">Exam Form</h1>
-                <div class="inputs">
-                    <!-- firstname -->
-                    <div class="inputForm">
-                        <label for="name">Full Name</label>
-                        <select name="fullName" id="fullName">
-                            
-                        </select>
+            <form id="form" action="/dashboard/users.html" method="post">
+                <h1 id="titleForm">User Form</h1>
+
+                <div class="boxs">
+                   
+                    <div class="box">
+                        <label for="username">Username</label>
+                        <input type="text" placeholder="enter username" required id="username">
                     </div>
-                    <div class="inputForm">
-                        <label for="name">Roll-Num</label>
-                        <select name="Roll-Num" id="RollNum">
-                            
-                        </select>
+                    <div class="box">
+                        <label for="Password">Password</label>
+                        <input type="password" placeholder="enter password" required id="password">
                     </div>
                 </div>
-                <div class="inputs">
-                    <!-- firstname -->
-                    <div class="inputForm">
-                        <label for="name">Database</label>
-                        <input id="Database" type="number">
-                    </div>
-                    <!-- lastname -->
-                    <div class="inputForm">
-                        <label for="name">Pythone</label>
-                        <input id="Pythone" type="number">
-                    </div>
-                </div>
-                <div class="inputs">
-                    <!-- firstname -->
-                    <div class="inputForm">
-                        <label for="name">Web development</label>
-                        <input id="WebDevelopment" type="number">
-                    </div>
-                    <!-- lastname -->
-                    <div class="inputForm">
-                        <label for="name">Network two</label>
-                        <input id="Network" type="number">
-                    </div>
-                </div>
-                <div class="inputs">
-                    <!-- firstname -->
-                    <!-- <div class="inputForm">
-                        <label for="name">Previous School
-                        </label>
-                        <input id="PreviousSchool" type="text" >
-                    </div> -->
-                    <!-- lastname -->
-                    <div class="inputForm">
-                        <label for="name">Statistics</label>
-                        <input id="Statistics" type="number">
-                    </div>
-                </div>
+               
                 <button id="submit" type="submit">Submit</button>
             </form>
         </div>
@@ -149,6 +108,7 @@
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>
