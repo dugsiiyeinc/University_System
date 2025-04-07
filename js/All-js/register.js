@@ -252,3 +252,5 @@ function openPopUp() {
     registerForm.style.display = "flex"
 
 }
+
+
