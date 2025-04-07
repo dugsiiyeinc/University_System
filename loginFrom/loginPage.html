@@ -9,13 +9,11 @@
        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="/js/All-js/general.js" defer></script> -->
-    <script src="/js/All-js/login.js" defer></script>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form id="loginForm">
+        <form method="post" action="#"  id="loginForm">
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required onkeyup="validateInput(this)">
@@ -29,5 +27,8 @@
             <button type="submit" class="btn">Login</button>
         </form>
     </div>
+    <script src="/js/All-js/login.js"></script>
+    <script src="/js/All-js/formValid.js"></script>
+
 </body>
 </html>

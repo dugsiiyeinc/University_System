@@ -1,5 +1,5 @@
 // desktop , protal-sub-menu
-let List_Li =  document.querySelector('.portal');
+let List_Li =  document.querySelector('#portal');
 let subMenu = document.querySelector('.sub-menu');
 List_Li.addEventListener('click', (e)=>{
   e.preventDefault();
@@ -142,17 +142,21 @@ function updateImage(){
 // pop up register form
 
 // btn add student
-let addStudent = document.querySelector('#addStudent');
-// regsiterForm
-let registerForm = document.querySelector('#register');
+// let addStudent = document.querySelector('#addStudent');
+// // regsiterForm
+// let registerForm = document.querySelector('#register');
 
-addStudent.addEventListener('click', (e)=>{
-  e.preventDefault();
-  openPopUp();
-  console.log("click");
+// addStudent.addEventListener('click', (e)=>{
+//   e.preventDefault();
+//   openPopUp();
+//   console.log("click");
   
-})
+// })
 
-function openPopUp(){
-  registerForm.style.display="flex";
-}
+// function openPopUp(){
+//   registerForm.style.display="flex";
+// }
+
+
+
+

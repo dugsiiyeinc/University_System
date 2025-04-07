@@ -3,29 +3,42 @@ let username = document.querySelector('#username');
 let password = document.querySelector('#password');
 
 
-loginForm.addEventListener('submit', (e)=>{
+loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     let users = getUserDataLocalStorage();
 
-    let findUser = users.find((usr)=> usr.user_
- == username.value & usr.pass_ == password.value);
+    let findUser = users.find((usr) => usr.user_
+        == username.value & usr.pass_ == password.value);
 
-//  localStorage.setItem('users', JSON.stringify(findUser));
+    //  localStorage.setItem('users', JSON.stringify(findUser));
 
- if(!findUser){
-    alert ('user not found');
+    if (!findUser) {
+        alert('user not found');
 
-    return users;
- }
+        return users;
+    }else{
+        let currentUser = findUser;
+        localStorage.setItem('curentUser', JSON.stringify(currentUser));
 
- window.location.href="../dashboard/index.html"
+        console.log(currentUser);
+        
+        window.location.href = "../dashboard/index.html"
+        
+        
+        
+    }
+
 })
 
 
 
-function getUserDataLocalStorage(){
+function getUserDataLocalStorage() {
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
     return users;
 }
+
+
+
+

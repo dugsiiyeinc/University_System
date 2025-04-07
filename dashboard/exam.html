@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="/js/All-js/general.js" defer></script>
-    <script src="/js/All-js/exam.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -23,7 +22,7 @@
                 <div class="logo">university-system</div>
                 <div class="user">
                     <i class="fa-solid fa-user-tie"></i>
-                    <p>Abdala Ergin</p>
+                    <p id="title">Abdala Ergin</p>
                 </div>
             </div>
         </div>
@@ -41,14 +40,14 @@
                 <div class="link Exam">
                     <a href="./exam.html"><i class="fa-solid fa-file-lines"></i> Exam-Info</a>
                 </div>
-                <div class="link blog">
+                <!-- <div class="link blog">
                     <a href="#"> <i class="fa-solid fa-newspaper"></i>Blog-Post</a>
-                </div>
+                </div> -->
                 <div class="link users">
                     <a href="users.html"><i class="fa-solid fa-user-tie"></i> Users</a>
                 </div>
                 <div class="link logOut">
-                    <a href="#"><i class="fa-solid fa-right-from-bracket"></i>Log-Out</a>
+                    <a href="#" id="logOut"><i class="fa-solid fa-right-from-bracket"></i>Log-Out</a>
                 </div>
             </div>
             <div class="right">
@@ -149,6 +148,11 @@
             </div>
         </div>
     </footer>
+
+    <script src="/js/All-js/general.js"></script>
+    <script src="/js/All-js/exam.js"></script>
+    <script src="/js/All-js/userLogOut.js"></script>
+    <!-- <script src="/js/All-js/login.js"></script> -->
 </body>
 
 </html>
