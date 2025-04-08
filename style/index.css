@@ -479,7 +479,8 @@ img {
 
 .section4 .container .down .cards img{
     width: 100%;
-border-radius: 5px 5px 0 0;
+    height: 200px;
+    border-radius: 5px 5px 0 0;
 }
 
 .section4 .container .down .cards img::before{
