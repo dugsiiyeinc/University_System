@@ -107,21 +107,21 @@ header{
 
 .section1 .sec .left{
     position: relative;
-    width: 100%;
+    /* width: 100%; */
     min-height: calc(100vh - 5.5rem);
     /* background-color: #03055e4b; */
     box-shadow: 0px 1px 10px rgba(175, 175, 175, 0.249);
     border-radius: 2px;
     /* margin: 1rem; */
-    padding: 1.5rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .4rem;
 }
 
 .section1 .sec .left .link{
     font-family: var(--font2);
-    width: 100%;
+    /* width: 100%; */
     /* background-color: #90909056; */
     padding: .5rem 0px;
     border-radius: 2px;
@@ -130,7 +130,7 @@ header{
 .section1 .sec .left .link a{
     /* padding: .5rem; */
     color: var(--color1);
-    font-size: 1.3rem;
+    font-size: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -143,15 +143,20 @@ header{
     justify-content: center;
     align-items: center;
     border-radius: 2px;
-    height: 30px;
-    width: 40px;
+    height: 20px;
+    width: 30px;
     background-color: var(--color1);
     color: var(--color3);
     /* text-align: center; */
-    font-size: .95rem;
+    font-size: .65rem;
     
     
 }
+
+
+
+/* update style start */
+/* update style end */
 
 .section1 .sec .left .logOut{
     position: absolute;
@@ -163,17 +168,21 @@ header{
 
 /* rigth side */
 .section1 .sec .right{
-    /* width: 100%; */
+    width: 100%;
     grid-column: 2/ span 5;
     box-shadow: 0px 1px 10px rgba(175, 175, 175, 0.249);
     position: relative;
     box-sizing: border-box;
+    
   
 }
 
 .section1 .sec .right .list-student{
+    height: 100%;
     width: 100%;
     display: flex;
+    flex: 1;
+    overflow-x: auto;
     flex-direction: column;
     padding: 2rem;
     gap: 1rem;
@@ -209,8 +218,7 @@ header{
 
 
 table {
-    min-width: 70%;
-    /* margin: 20px auto; */
+    width: 100%;
     border-collapse: collapse;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -227,6 +235,8 @@ th {
     background-color: var(--color1);
     font-family: var(--font2);
     color: white;
+    font-size: .8rem;
+    font-weight: 100;
 }
 tr:nth-child(even) {
     background-color: #f9f9f9;
@@ -463,4 +473,32 @@ footer .container .foter-down p{
         gap: 2rem;
         
     }
+
+    .section1 .sec .right .list-student .up{
+     
+    }
+
+    .section1 .sec .right .list-student .up a{
+       font-size: .7rem;
+    }
+
+    .section1 .sec .right .list-student .up h2{
+        font-size: 1rem;
+     }
+
+  
+}
+
+@media (max-width: 640px) {
+
+
+    .section1 .sec .right .list-student .up a{
+       font-size: .5rem;
+    }
+
+    .section1 .sec .right .list-student .up h2{
+        font-size: .9rem;
+     }
+
+  
 }
