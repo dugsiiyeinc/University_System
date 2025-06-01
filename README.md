@@ -69,7 +69,12 @@ We value clean code and clear documentation.
 
 ---
 # Demo 
-[Click To See Our Website](https://university-system-pi.vercel.app/)
+[Click To See Our Website](https://university-system-pi.vercel.app/).
+    
+- **Admin User**
+       
+       Username : Admin
+       Password : 12345
 
 ## 📌 Note
 
