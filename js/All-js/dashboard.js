@@ -5,15 +5,15 @@ let users = document.querySelector('#users');
 
 function getLocalStorageData(){
     // students 
-    let students_ = JSON.parse(localStorage.getItem('students'));
+    let students_ = JSON.parse(localStorage.getItem('students')) || [];
     console.log(students.length);
 
     // exams
-    let exams_ = JSON.parse(localStorage.getItem('studentExam'));
+    let exams_ = JSON.parse(localStorage.getItem('studentExam')) || [];
     console.log(exams.length);
 
     // users
-    let users_ = JSON.parse(localStorage.getItem('users'));
+    let users_ = JSON.parse(localStorage.getItem('users')) || [];
     console.log(users.length);
     
     return {
