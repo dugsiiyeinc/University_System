@@ -36,6 +36,17 @@ loginForm.addEventListener('submit', (e) => {
 function getUserDataLocalStorage() {
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
+    if(!users || users.length === 0){
+        users = [
+            {
+                user_: 'admin',
+                pass_: 12345
+            }
+        ]
+
+        localStorage.setItem('users', JSON.stringify(users))
+    }
+
     return users;
 }
 
