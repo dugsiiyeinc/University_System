@@ -87,11 +87,26 @@ openModel.addEventListener('click', (e) => {
 // registExamDom
 function registExamDom(exam) {
 
+
     // fetchStudentData();
 
     // displayDomAsTable
 
     // console.log(exam);
+
+    // totalExam
+    let totalExam = 
+    Number(exam.Data_Base) +
+    Number(exam.Pythone_) +
+    Number(exam.Web_Develop) +
+    Number(exam.Network_) +
+    Number(exam.Statis_tics);
+
+    //  grade 
+    let grade = totalExam < 350 ? 'Failed' : 'Passed';
+
+    console.log(totalExam);
+    
 
     let tr = document.createElement('tr');
     tr.dataset = exam.ID;
@@ -103,7 +118,10 @@ function registExamDom(exam) {
         <td>${exam.Pythone_}</td>
         <td>${exam.Web_Develop}</td>
         <td>${exam.Network_}</td>
-        <td>${exam.Statis_tics}School</td>
+        <td>${exam.Statis_tics}</td>
+        <td><strong> ${totalExam} </strong></td>
+        <td><strong style="color: ${grade === 'passed' ? 'green' : 'red'}"> ${grade} </strong></td>
+        
         </td>
         <td><i class="fa-solid fa-pen-to-square" id="edit"></i>
             <i class="fa-solid fa-trash" id="deleteBtn"></i>
