@@ -19,6 +19,18 @@ form.addEventListener('click', (e)=>{
         
       
             let tr = document.createElement('tr');
+
+             // totalExam
+    let totalExam = 
+    Number(student.Data_Base) +
+    Number(student.Pythone_) +
+    Number(student.Web_Develop) +
+    Number(student.Network_) +
+    Number(student.Statis_tics);
+
+    //  grade 
+    let grade = totalExam < 350 ? 'Failed' : 'Passed';
+
             
     
 
@@ -30,6 +42,9 @@ form.addEventListener('click', (e)=>{
                     <td>${student.Web_Develop}</td>
                     <td>${student.Network_}</td>
                     <td>${student.Statis_tics}</td>
+                    <td>${totalExam}</td>
+                    <td><strong style='color: ${grade === 'passed' ? 'green' : 'red'}'>${grade}</strong></td>
+                    
 
         `
 
